@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: EasyAsync
+Version: 1.0
+Summary: An easy way to use asyncio with existing python3 code
+Home-page: https://github.com/tannerburns/easyasync
+Author: Tanner Burns
+Author-email: tjburns102@gmail.com
+License: UNKNOWN
+Description: # EasyAsync - Python3
+        
+        # Requirements & Install
+        
+            Python3
+        
+            To install library for system use, run the following:
+        
+                pip install .
+        
+        # Usage
+        
+            
+        
+        # Examples
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
