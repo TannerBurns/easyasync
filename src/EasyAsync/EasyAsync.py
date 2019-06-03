@@ -25,8 +25,7 @@ class EasyAsync:
         return [futures[ind].result() for ind in range(0, len(futures))]
 
     def easy_work(self, fn: Callable, fullgroup: List) -> List:
-        done = []
         loop = asyncio.get_event_loop()
         for ind in range(0, len(fullgroup), self._workers):
             group = fullgroup[ind:ind+self._workers]
-            done.extend(loop.run_until_complete(self._worker(fn, group)))
+            yield loop.run_until_complete(self._worker(fn, group))
