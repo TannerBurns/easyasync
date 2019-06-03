@@ -6,8 +6,8 @@ from typing import List, Callable
 
 
 class EasyAsync:
-    def __init__(self):
-        self._workers = 16
+    def __init__(self, workers=16):
+        self._workers = workers
 
     async def _worker(self, fn: Callable, group: List) -> List:
         with concurrent.futures.ThreadPoolExecutor(max_workers=self._workers) as executor:

@@ -32,7 +32,7 @@ def add(args):
 
 if __name__ == "__main__":
     # create a EasyAsync object
-    easy = EasyAsync()
+    easy = EasyAsync(workers=16)
 
     # [0, 1, 2..., 149]
     args = range(0, 150)
@@ -53,5 +53,4 @@ if __name__ == "__main__":
     rets = [r for rets in easy.easy_work(add, args) for r in rets]
     for r in rets:
         print(r)
-
 ```
