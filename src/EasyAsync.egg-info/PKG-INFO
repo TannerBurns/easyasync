@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: EasyAsync
-Version: 1.0
+Version: 1.2
 Summary: An easy way to use asyncio with existing python3 code
 Home-page: https://github.com/tannerburns/easyasync
 Author: Tanner Burns
@@ -14,7 +14,7 @@ Description: # EasyAsync - Python3
         
             To install library for system use, run the following:
         
-                pip install .
+                pip3 install .
         
         # Usage
         
@@ -40,7 +40,7 @@ Description: # EasyAsync - Python3
         
         if __name__ == "__main__":
             # create a EasyAsync object
-            easy = EasyAsync()
+            easy = EasyAsync(workers=16)
         
             # [0, 1, 2..., 149]
             args = range(0, 150)
@@ -49,7 +49,7 @@ Description: # EasyAsync - Python3
                 # process something between printing
                 pass
         
-            # [(0, 150), (1, 151) ... (149, 299)] list of arguments for function
+            # [(0, 150), (0, 151) ... (149, 299)] list of arguments for function
             args = [(x, y) for x in range(0, 150) for y in range(150, 300)]
         
             # example 1: use as generator and process small chunks at a time
@@ -61,7 +61,6 @@ Description: # EasyAsync - Python3
             rets = [r for rets in easy.easy_work(add, args) for r in rets]
             for r in rets:
                 print(r)
-        
         ```
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3

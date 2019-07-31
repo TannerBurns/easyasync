@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
      name='EasyAsync',
-     version='1.0',
+     version='1.2',
      author="Tanner Burns",
      author_email="tjburns102@gmail.com",
      description="An easy way to use asyncio with existing python3 code",

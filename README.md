@@ -6,7 +6,7 @@
 
     To install library for system use, run the following:
 
-        pip install .
+        pip3 install .
 
 # Usage
 
@@ -41,7 +41,7 @@ if __name__ == "__main__":
         # process something between printing
         pass
 
-    # [(0, 150), (1, 151) ... (149, 299)] list of arguments for function
+    # [(0, 150), (0, 151) ... (149, 299)] list of arguments for function
     args = [(x, y) for x in range(0, 150) for y in range(150, 300)]
 
     # example 1: use as generator and process small chunks at a time
