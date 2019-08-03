@@ -1,7 +1,7 @@
 import asyncio
-import concurrent.futures
-import functools
 
+from concurrent.futures import ThreadPoolExecutor
+from functools import partial
 from typing import Callable
 
 
@@ -14,7 +14,6 @@ class EasyAsync:
         """
         self._workers = workers
 
-
     async def _worker(self, fn: Callable, group: list) -> list:
         """_worker -- function for wrapping non async function call
         
@@ -25,16 +24,13 @@ class EasyAsync:
         Returns:
             list -- group of returns from the mapped function
         """
-        with concurrent.futures.ThreadPoolExecutor(max_workers=self._workers) as executor:
+        with ThreadPoolExecutor(max_workers=self._workers) as executor:
             loop = asyncio.get_event_loop()
-            futures = [loop.run_in_executor(executor, functools.partial(fn, item)) 
+            futures = [loop.run_in_executor(executor, partial(fn, item)) 
                 for item in group if item
             ]
-
         await asyncio.gather(*futures)
-
         return [f.result() for f in futures]
-
 
     def easy_work(self, fn: Callable, args: list) -> list:
         """easy_work - turn a non async work into async work
